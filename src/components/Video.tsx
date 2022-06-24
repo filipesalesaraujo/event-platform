@@ -44,6 +44,7 @@ interface VideoProps {
 export function Video({ lessonSlug }: VideoProps) {
   const { data } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG_QUERY, {
     variables: { slug: lessonSlug },
+    fetchPolicy: "cache-and-network" ,
   });
 
   if (!data) {
